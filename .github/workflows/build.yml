@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: mica-mqtt-server-native-linx-x64
-          path: target/mica-mqtt-server-native
+          path: target/mqtt-server-graalvm
