@@ -19,7 +19,8 @@ jobs:
           java-version: '21'
           distribution: 'graalvm' # or 'graalvm-community' or 'mandrel'
           components: 'native-image'
-          #github-token: ${{ secrets.GITHUB_TOKEN }}
+          cache: maven
+          github-token: ${{ secrets.GH_TOKEN }}
 
       - name: Display Java and Native Image versions
         run: |
@@ -27,11 +28,6 @@ jobs:
           echo "JAVA_HOME: $JAVA_HOME"
           java --version
           native-image --version
-
-      - name: Set up Maven
-          uses: actions/setup-maven@v2
-          with:
-            maven-version: '3.8.8' # Specify the Maven version here
 
       - name: mvn version
         run: |
