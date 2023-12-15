@@ -34,10 +34,19 @@ jobs:
           mvn -version
 
       - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Build with Maven native
         run: mvn clean package -DskipTests -Pmqtt-server-graal
 
       - name:  Upload package
         uses: actions/upload-artifact@v3
         with:
-          name: mica-mqtt-server-native-linx-x64
+          name: target/mica-mqtt-server-native.jar
+          path: target/target/mica-mqtt-server-native.jar
+      
+      - name:  Upload native package
+        uses: actions/upload-artifact@v3
+        with:
+          name: mica-mqtt-server-native-linux-x64
           path: target/mqtt-server-graalvm
