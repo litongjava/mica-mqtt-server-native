@@ -42,7 +42,7 @@ jobs:
       - name:  Upload package
         uses: actions/upload-artifact@v3
         with:
-          name: target/mica-mqtt-server-native.jar
+          name: mica-mqtt-server-native.jar
           path: target/target/mica-mqtt-server-native.jar
       
       - name:  Upload native package
